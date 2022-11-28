@@ -43,8 +43,8 @@
     display: none;
 }
 
-#modal-container.is-visable {
-    display: visable;
+#modal-container.is-visible {
+    display: inline-block;
     background-color: rgb(113, 233, 235);
     position: fixed;
     padding: 20%;

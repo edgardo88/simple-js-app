@@ -5,7 +5,7 @@ let pokemonRepository = (function () {
 
     let pokemonListElement = document.querySelector('.pokemon-list');
     function getModalContainer() {
-        return document.querySelector('#modal-container');
+        return document.getElementById('#modal-container');
     }
     function getAll() {
         return pokemonList;
@@ -26,7 +26,7 @@ let pokemonRepository = (function () {
         pokemonListElement.appendChild(listItem);
         // listens to clicks on pokemon button to show more details
         button.addEventListener('click', function (event) {
-            showDetails(pokemon)
+            showDetails(pokemon);
         })
     };
 
@@ -63,14 +63,13 @@ let pokemonRepository = (function () {
 
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
-            console.log(pokemon);
             showModal(pokemon);
         });
     };
 
 
     function showModal(pokemon) {
-        let modalContainer = document.querySelector('#modal-container');
+        let modalContainer = document.getElementById('#modal-container');
 
         modalContainer.innerHTML = '';
 
@@ -101,11 +100,10 @@ let pokemonRepository = (function () {
         modal.appendChild(pokemonTypes);
         modalContainer.appendChild(modal);
 
-        modalContainer.addEventListener('click', (e) => {
-            let target = e.target;
-            if (target === modalContainer) {
-                hideModal();
-            }
+        closeButtonElement.addEventListener('click', (e) => {
+
+            hideModal();
+
         })
 
         modalContainer.classList.add('is-visible');
