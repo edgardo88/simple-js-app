@@ -17,19 +17,22 @@ let pokemonRepository = (function () {
 
     function addListItem(pokemon) {
         //creating a list item (pokemons) with a button
-        let pokemonList = document.querySelector(".pokemon-list");
+        let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
+
         let button = document.createElement('button');
         button.innerText = pokemon.name;
         button.classList.add('pokemon-button');
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '#modal-container');
         // add button to list item and add item(pokemon) to the pokemon list elements in index.html
         listItem.appendChild(button);
-        pokemonListElement.appendChild(listItem);
+        pokemonList.appendChild(listItem);
         // listens to clicks on pokemon button to show more details
-        button.addEventListener('click', function (event) {
+        button.addEventListener("click", function () {
             showDetails(pokemon);
         })
-    };
+    }
 
     //adding Load list function for task
     function loadList() {
@@ -65,6 +68,7 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
             showModal(pokemon);
+
         });
     };
 
