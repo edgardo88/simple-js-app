@@ -64,6 +64,7 @@
 }
 
 .modal {
+    display: inline-block;
     margin: auto;
     box-sizing: border-box;
     width: 70%;

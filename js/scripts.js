@@ -77,8 +77,9 @@ let pokemonRepository = (function () {
 
     function showModal(pokemon) {
         let modalContainer = document.getElementById('#modal-container');
-
         modalContainer.innerHTML = '';
+        modalContainer.classList.add('is-visible');
+
 
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -113,7 +114,6 @@ let pokemonRepository = (function () {
 
         })
 
-        modalContainer.classList.add('is-visible');
 
         button.addEventListener('click', (event) => {
             showModal();
