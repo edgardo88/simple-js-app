@@ -5,7 +5,7 @@ let pokemonRepository = (function () {
 
     let pokemonListElement = document.querySelector('.pokemon-list');
     function getModalContainer() {
-        return document.getElementById('#modal-container');
+        return document.getElementById('modal-container');
     }
     function getAll() {
         return pokemonList;
@@ -76,7 +76,7 @@ let pokemonRepository = (function () {
 
 
     function showModal(pokemon) {
-        let modalContainer = document.getElementById('#modal-container');
+        let modalContainer = document.getElementById('modal-container');
         modalContainer.innerHTML = '';
         modalContainer.classList.add('is-visible');
 
@@ -107,6 +107,7 @@ let pokemonRepository = (function () {
         modal.appendChild(pokemonHeight);
         modal.appendChild(pokemonTypes);
         modalContainer.appendChild(modal);
+
 
         closeButtonElement.addEventListener('click', (e) => {
 
