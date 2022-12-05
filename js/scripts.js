@@ -23,8 +23,6 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.innerText = pokemon.name;
         button.classList.add('pokemon-button');
-        button.setAttribute('data-toggle', 'modal');
-        button.setAttribute('data-target', '#modal-container');
         // add button to list item and add item(pokemon) to the pokemon list elements in index.html
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
@@ -98,8 +96,19 @@ let pokemonRepository = (function () {
         let pokemonHeight = document.createElement('p');
         pokemonHeight.innerText = "Height: " + pokemon.height;
 
+
+        let types = []
+
+        console.log(pokemon.types)
+
+        pokemon.types.forEach((type) => {
+            console.log('type', type);
+            types.push(type.type.name);
+        })
+        console.log(types)
+
         let pokemonTypes = document.createElement('p');
-        pokemonTypes.innerText = "Type: " + pokemon.types;
+        pokemonTypes.innerText = "Type: " + types;
 
         modal.appendChild(closeButtonElement);
         modal.appendChild(title);
@@ -114,6 +123,22 @@ let pokemonRepository = (function () {
             hideModal();
 
         })
+
+        window.addEventListener('keydown', (e) => {
+            let modalContainer = document.getElementById('modal-container');
+            if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+                hideModal();
+            }
+        });
+
+        modalContainer.addEventListener('click', (e) => {
+            // Since this is also triggered when clicking INSIDE the modal
+            // We only want to close if the user clicks directly on the overlay
+            let target = e.target;
+            if (target === modalContainer) {
+                hideModal();
+            }
+        });
 
 
         button.addEventListener('click', (event) => {
