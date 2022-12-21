@@ -21,8 +21,9 @@ body {
 
 .pokemon-button {
     font-size: 20px;
+    margin-left: 25%;
     padding: 12px;
-    width: 100%;
+    width: 50%;
     background-color: rgb(205, 231, 9);
     border-radius: 50%;
 
