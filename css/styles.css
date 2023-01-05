@@ -11,6 +11,8 @@ body {
     margin-top: 5%;
 }
 
+
+
 .pokedex {
     padding: 15px;
     display: flex;
@@ -66,4 +68,8 @@ body {
 
 .modal-header {
     background-color: yellow;
+}
+
+.modal-footer {
+    margin-right: 40%;
 }
